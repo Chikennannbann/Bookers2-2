@@ -1,13 +1,18 @@
-<div class='text-center'>
-  <h1>welcome to Bookers!!</h1>
-  <p>In Bookers,<br>
-  you can share and exchangee your opinions, impressions, and emotions<br>
-  about various books!</p>
-</div>
-
-<div>
-  <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
-</div>
-<div>
-  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success' %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-11 mx-auto'>
+      <h1>welcome to <strong>Bookers!!</strong></h1>
+      <p>In <strong>Bookers,</strong></p>
+      <p>you can share and exchangee your opinions, impressions, and emotions</p>
+      <p>about various books!</p>
+    </div>
+    <div class='col-8 btn-wrapper mx-auto'>
+      <div>
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn-info btn-block mb-3' %>
+      </div>
+      <div>
+        <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success btn-block' %>
+      </div>
+    </div>
+  </div>
 </div>
