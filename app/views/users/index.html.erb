@@ -1,2 +1,35 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='row'>
+        <h3>User Info</h3>
+        <%= render 'users/info', user: current_user %>
+      </div>
+      <div class='row'>
+        <h3>New book</h3>
+        <%= render 'books/form', booknew: @booknew %>
+      </div>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h3>Users</h3>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th colspan='3'>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |f| %>
+          <tr>
+            <td><%= image_tag f.get_profile_image, size: '70x70' %></td>
+            <td><%= f.name %></td>
+            <td><%= link_to "Show", user_path(f.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

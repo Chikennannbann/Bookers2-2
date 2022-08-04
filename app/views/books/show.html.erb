@@ -1,15 +1,27 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-3'>
+    <div class='col-md-3'>
+      <div class='row'>
+        <h3>User Info</h3>
+        <%= render 'users/info', user: @user %>
+      </div>
+      <div class='row'>
+        <h3>New book</h3>
+        <%= render 'books/form', booknew: @booknew %>
+      </div>
     </div>
-    <div class='col-8 offset-1'>
+    <div class='col-md-8 offset-md-1'>
       <h3>Book detail</h3>
       <table class='table'>
         <tr>
-          <td></td>
+          <td><%= link_to @book.user do %>
+                <%= image_tag @book.user.get_profile_image, size: '100x100' %><br>
+                <%= @book.user.name %>
+              <% end %>
+          </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
-          <% if current_user.id = @book.user_id %>
+          <% if current_user.id == @book.user_id %>
           <td><%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-success' %></td>
           <td><%= link_to "Destroy", book_path(@book), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           <% end %>

@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, length: { minimum: 2, maxmum: 20 }, uniqueness: true
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
   def get_profile_image
@@ -16,6 +16,6 @@ class User < ApplicationRecord
       file_path = Rails.root.join('app/assets/images/default-image.jpeg')
       profile_image.attach(io:File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    profile_image.valiant(resize_to_limit: [width, height]).processed
+    profile_image
   end
 end

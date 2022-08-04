@@ -1,7 +1,8 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-8'>
-      <h4>Edit Book</h4>
+    <div class='col-md-6 mx-auto'>
+      <%= render 'layouts/errors', obj: @book %>
+      <h3>Editing Book</h3>
       <%= form_with model: @book, url: book_path, method: :patch do |f| %>
           <div class='form-group'>
             <%= f.label :title %>
@@ -15,6 +16,7 @@
             <%= f.submit class: 'btn btn-success' %>
           </div>
         <% end %>
+        <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
     </div>
   </div>
 </div>
